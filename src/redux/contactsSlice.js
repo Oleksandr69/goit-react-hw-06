@@ -47,27 +47,3 @@ const slice = createSlice({
 
 export const { addContact, deleteContact } = slice.actions;
 export default slice.reducer;
-
-// export const contactsReducer = (state = initialState, action) => {
-//   console.log(state);
-//   switch (action.type) {
-//     case 'contacts/addContact':
-//       return {
-//         ...state,
-//         contacts: {
-//           items: [...state.contacts.items, action.payload],
-//         },
-//       };
-//     case 'contacts/deleteContact':
-//       return {
-//         ...state,
-//         contacts: {
-//           items: state.contacts.items.filter(
-//             card => card.id !== action.payload
-//           ),
-//         },
-//       };
-//     default:
-//       return state;
-//   }
-// };

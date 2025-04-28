@@ -9,16 +9,15 @@ const SearchBox = () => {
     console.log(search);
     const dispatch = useDispatch();
 
-    const handleOnChange= (evt) => dispatch(changeFilter(evt));
-
-    // const handleOnChange = (value) => { handleSearch(value) };
+    const handleOnChange = (e) => dispatch(changeFilter(e.target.value));
 
     return (
     <div className={css.search}>
         <p >Find contacts by name.</p>
             <input
                 type='text'
-                onChange={(e) =>  handleOnChange(e.target.value)}  
+                value = {search}
+                onChange={handleOnChange} 
              className={css.inputSearch} />
     </div>
  )}

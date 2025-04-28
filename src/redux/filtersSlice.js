@@ -9,9 +9,15 @@ const slice = createSlice({
       return {
         ...state,
         contacts: {
-          items: state.contacts.items.filter(card =>
-            card.name.toLowerCase().includes(action.payload.toLowerCase())
-          ),
+          items: state.contacts.items.filter(card => {
+            console.log(card.name.toLowerCase());
+            console.log(action.payload.toLowerCase());
+
+            card.name.toLowerCase().includes(action.payload.toLowerCase());
+          }),
+        },
+        filters: {
+          name: action.payload,
         },
       };
     },
@@ -20,30 +26,3 @@ const slice = createSlice({
 
 export const { changeFilter } = slice.actions;
 export default slice.reducer;
-
-// export const changeFilter = createAction('filters/changeFilter');
-
-// export const filtersReducer = (state = initialState.filters.name, action) => {
-//   switch (action.type) {
-//     case 'filters/changeFilter':
-//       return {
-//         ...state,
-//         contacts: {
-//           items: state.contacts.items.filter(card =>
-//             card.name.toLowerCase().includes(action.payload.toLowerCase())
-//           ),
-//         },
-//       };
-//     default:
-//       return state;
-//   }
-// };
-
-// export const initialState = {
-//   contacts: {
-//     items: value(),
-//   },
-//   filters: {
-//     name: '',
-//   },
-// };
