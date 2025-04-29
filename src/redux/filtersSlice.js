@@ -1,25 +1,11 @@
-import { initialValue } from './contactsSlice';
 import { createSlice } from '@reduxjs/toolkit';
 
 const slice = createSlice({
   name: 'filters',
-  initialState: initialValue,
+  initialState: { name: '' },
   reducers: {
     changeFilter: (state, action) => {
-      return {
-        ...state,
-        contacts: {
-          items: state.contacts.items.filter(card => {
-            console.log(card.name.toLowerCase());
-            console.log(action.payload.toLowerCase());
-
-            card.name.toLowerCase().includes(action.payload.toLowerCase());
-          }),
-        },
-        filters: {
-          name: action.payload,
-        },
-      };
+      state.name = action.payload;
     },
   },
 });

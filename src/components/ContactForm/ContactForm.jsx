@@ -7,10 +7,9 @@ import css from  './ContactForm.module.css'
 import { useDispatch } from "react-redux";
 import { addContact } from '../../redux/contactsSlice';
 
-
 const ContactForm = () => {
+
   const dispatch = useDispatch();
-  const hadnleAddContact = (value) => dispatch(addContact(value));
   const nameFieldId = useId();
   const telFieldId = useId();
 
@@ -25,13 +24,12 @@ const ContactForm = () => {
 });
 
   const handleSubmit = (value, actions) => {
-  
-    hadnleAddContact({
+
+    dispatch(addContact({
       id: nanoid(),
       name: value.name,
       number: value.number,
-    });
-    
+    }))
     actions.resetForm();
   };
 
@@ -57,4 +55,5 @@ const ContactForm = () => {
     </Formik>
   );
 };
+
 export default ContactForm;

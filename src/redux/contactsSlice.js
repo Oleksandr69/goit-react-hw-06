@@ -1,47 +1,19 @@
 import cardList from '../components/cardList.json';
 import { createSlice } from '@reduxjs/toolkit';
 
-// const savedCards = window.localStorage.getItem('saved-cardItems');
-
-// const value = () => {
-//   if (savedCards !== null) {
-//     return JSON.parse(savedCards);
-//   } else {
-//     return cardList;
-//   }
-// };
-
-export const initialValue = {
-  contacts: {
-    // items: value(),
-    items: cardList,
-  },
-  filters: {
-    name: '',
-  },
-};
-
 const slice = createSlice({
   name: 'contacts',
-  initialState: initialValue,
+  initialState: { items: cardList },
   reducers: {
     addContact: (state, action) => {
-      return {
-        ...state,
-        contacts: {
-          items: [...state.contacts.items, action.payload],
-        },
-      };
+      const { id, name, number } = action.payload; // return {
+      state.items.push({ id, name, number });
     },
+
     deleteContact: (state, action) => {
-      return {
-        ...state,
-        contacts: {
-          items: state.contacts.items.filter(
-            card => card.id !== action.payload
-          ),
-        },
-      };
+      state.items = state.items.filter(
+        contact => contact.id !== action.payload
+      );
     },
   },
 });

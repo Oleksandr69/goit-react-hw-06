@@ -3,9 +3,8 @@ import { useDispatch } from "react-redux";
 import { changeFilter } from '../../redux/filtersSlice';
 import { useSelector } from 'react-redux';
 
-
 const SearchBox = () => {
-    const search = useSelector((state) => state.filter.filters.name);
+    const search = useSelector((state) => state.filters.name);
     // console.log(search);
     const dispatch = useDispatch();
 
@@ -21,4 +20,5 @@ const SearchBox = () => {
              className={css.inputSearch} />
     </div>
  )}
+
 export default SearchBox;

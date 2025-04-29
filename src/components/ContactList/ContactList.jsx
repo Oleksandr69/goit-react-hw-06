@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux';
 
 const ContactList = () => {
 
-    const contact = useSelector((state) => state.contact.contacts.items);
-    const searchName = useSelector((state) => state.filter.filters.name);
+    const contact = useSelector((state) => state.contacts.items);
+    const searchName = useSelector((state) => state.filters.name);
 
     // console.log(contact, searchName);  
-    // window.localStorage.setItem('saved-cardItems', JSON.stringify(contact));
    
     return <ul className={css.list}>
         {contact.map((card) => {
@@ -24,5 +23,5 @@ const ContactList = () => {
         })}
     </ul>;
 };
-   
+
 export default ContactList;
