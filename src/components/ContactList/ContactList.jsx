@@ -6,10 +6,9 @@ const ContactList = () => {
 
     const contact = useSelector((state) => state.contact.contacts.items);
     const searchName = useSelector((state) => state.filter.filters.name);
-    // console.log(contact, searchName);
 
-    
-    window.localStorage.setItem('saved-cardItems', JSON.stringify(contact));
+    // console.log(contact, searchName);  
+    // window.localStorage.setItem('saved-cardItems', JSON.stringify(contact));
    
     return <ul className={css.list}>
         {contact.map((card) => {

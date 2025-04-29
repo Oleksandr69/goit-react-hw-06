@@ -1,19 +1,20 @@
 import cardList from '../components/cardList.json';
 import { createSlice } from '@reduxjs/toolkit';
 
-const savedCards = window.localStorage.getItem('saved-cardItems');
+// const savedCards = window.localStorage.getItem('saved-cardItems');
 
-const value = () => {
-  if (savedCards !== null) {
-    return JSON.parse(savedCards);
-  } else {
-    return cardList;
-  }
-};
+// const value = () => {
+//   if (savedCards !== null) {
+//     return JSON.parse(savedCards);
+//   } else {
+//     return cardList;
+//   }
+// };
 
 export const initialValue = {
   contacts: {
-    items: value(),
+    // items: value(),
+    items: cardList,
   },
   filters: {
     name: '',

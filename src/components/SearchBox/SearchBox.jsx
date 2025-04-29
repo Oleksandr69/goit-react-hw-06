@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 
 const SearchBox = () => {
     const search = useSelector((state) => state.filter.filters.name);
-    console.log(search);
+    // console.log(search);
     const dispatch = useDispatch();
 
     const handleOnChange = (e) => dispatch(changeFilter(e.target.value));
